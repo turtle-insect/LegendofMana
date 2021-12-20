@@ -97,6 +97,22 @@ namespace LegendofMana
 			return result;
 		}
 
+		public Byte ReadByte(uint address, bool isLow)
+		{
+			Byte result = 0;
+			if (mBuffer == null) return result;
+			address = CalcAddress(address);
+			if (address > mBuffer.Length) return result;
+			result = mBuffer[address];
+			if (isLow == false)
+			{
+				result = (Byte)(result >> 4);
+			}
+			result &= 0x0F;
+
+			return result;
+		}
+
 		// 0 to 7.
 		public bool ReadBit(uint address, uint bit)
 		{
@@ -135,6 +151,24 @@ namespace LegendofMana
 				mBuffer[address + i] = (Byte)(value & 0xFF);
 				value >>= 8;
 			}
+		}
+
+		public void WriteByte(uint address, bool isLow, Byte value)
+		{
+			if (mBuffer == null) return;
+			address = CalcAddress(address);
+			if (address > mBuffer.Length) return;
+			Byte tmp = mBuffer[address];
+			if (isLow == false)
+			{
+				tmp &= 0x0F;
+				value = (Byte)(value << 4);
+			}
+			else
+			{
+				tmp &= 0xF0;
+			}
+			mBuffer[address] = (Byte)(tmp | value);
 		}
 
 		// 0 to 7.

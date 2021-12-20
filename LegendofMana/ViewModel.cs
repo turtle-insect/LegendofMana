@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,15 @@ namespace LegendofMana
 {
 	internal class ViewModel
 	{
-		public Player Player { get; private set; } = new Player();
+		public ObservableCollection<Charactor> Charactors { get; private set; } = new ObservableCollection<Charactor>();
+
+		public ViewModel()
+		{
+			for (uint index = 0; index < 2; index++)
+			{
+				Charactors.Add(new Charactor(0x790 + index * 880));
+			}
+		}
 
 		public uint Money
 		{
