@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -12,11 +13,16 @@ namespace LegendofMana
 		private readonly uint mAddress;
 		public event PropertyChangedEventHandler? PropertyChanged;
 		public Weapon Weapon { get; private set; }
+		public ObservableCollection<Armor> Armors { get; private set; } = new ObservableCollection<Armor>();
 
 		public Charactor(uint address)
 		{
 			mAddress = address;
 			Weapon = new Weapon(address + 0x70);
+			for (uint index = 0; index < 3; index++)
+			{
+				Armors.Add(new Armor(address + 0xD0 + index * 0x60));
+			}
 		}
 
 		public String Name

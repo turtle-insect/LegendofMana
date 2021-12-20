@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
 		AllowDrop="True" Drop="Window_Drop" PreviewDragOver="Window_PreviewDragOver"
-        Title="MainWindow" Height="550" Width="800">
+        Title="MainWindow" Height="600" Width="850">
 	<Window.DataContext>
 		<local:ViewModel/>
 	</Window.DataContext>
@@ -130,10 +130,11 @@
 									<RowDefinition/>
 									<RowDefinition/>
 									<RowDefinition/>
+									<RowDefinition/>
 								</Grid.RowDefinitions>
 								<Grid.ColumnDefinitions>
 									<ColumnDefinition/>
-									<ColumnDefinition Width="2*"/>
+									<ColumnDefinition Width="1.5*"/>
 								</Grid.ColumnDefinitions>
 								<Label Content="Name"/>
 								<TextBox Grid.Column="1" Text="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Weapon.Equipment.Name, UpdateSourceTrigger=PropertyChanged}"/>
@@ -148,31 +149,55 @@
 									<Label Content="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Weapon.Equipment.Material, Converter={StaticResource MaterialIDConverter}}"/>
 								</StackPanel>
 								<Label Grid.Row="3" Content="Attribute Level"/>
-								<StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
+								<Grid Grid.Row="3" Grid.Column="1">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+									</Grid.ColumnDefinitions>
 									<ComboBox ItemsSource="{Binding Source={StaticResource attribute_level}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Weapon.Equipment.AttributeLevel1}"/>
-									<ComboBox ItemsSource="{Binding Source={StaticResource attribute_level}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Weapon.Equipment.AttributeLevel2}"/>
-									<ComboBox ItemsSource="{Binding Source={StaticResource attribute_level}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Weapon.Equipment.AttributeLevel3}"/>
-									<ComboBox ItemsSource="{Binding Source={StaticResource attribute_level}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Weapon.Equipment.AttributeLevel4}"/>
-								</StackPanel>
-								<StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal">
+									<ComboBox Grid.Column="1" ItemsSource="{Binding Source={StaticResource attribute_level}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Weapon.Equipment.AttributeLevel2}"/>
+									<ComboBox Grid.Column="2" ItemsSource="{Binding Source={StaticResource attribute_level}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Weapon.Equipment.AttributeLevel3}"/>
+									<ComboBox Grid.Column="3" ItemsSource="{Binding Source={StaticResource attribute_level}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Weapon.Equipment.AttributeLevel4}"/>
+								</Grid>
+								<Grid Grid.Row="4" Grid.Column="1">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+									</Grid.ColumnDefinitions>
 									<ComboBox ItemsSource="{Binding Source={StaticResource attribute_level}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Weapon.Equipment.AttributeLevel5}"/>
-									<ComboBox ItemsSource="{Binding Source={StaticResource attribute_level}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Weapon.Equipment.AttributeLevel6}"/>
-									<ComboBox ItemsSource="{Binding Source={StaticResource attribute_level}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Weapon.Equipment.AttributeLevel7}"/>
-									<ComboBox ItemsSource="{Binding Source={StaticResource attribute_level}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Weapon.Equipment.AttributeLevel8}"/>
-								</StackPanel>
+									<ComboBox Grid.Column="1" ItemsSource="{Binding Source={StaticResource attribute_level}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Weapon.Equipment.AttributeLevel6}"/>
+									<ComboBox Grid.Column="2" ItemsSource="{Binding Source={StaticResource attribute_level}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Weapon.Equipment.AttributeLevel7}"/>
+									<ComboBox Grid.Column="3" ItemsSource="{Binding Source={StaticResource attribute_level}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Weapon.Equipment.AttributeLevel8}"/>
+								</Grid>
 								<Label Grid.Row="5" Content="Status"/>
-								<StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal">
+								<Grid Grid.Row="5" Grid.Column="1">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+									</Grid.ColumnDefinitions>
 									<ComboBox ItemsSource="{Binding Source={StaticResource status}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Weapon.Equipment.StatusLevel1}"/>
-									<ComboBox ItemsSource="{Binding Source={StaticResource status}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Weapon.Equipment.StatusLevel2}"/>
-									<ComboBox ItemsSource="{Binding Source={StaticResource status}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Weapon.Equipment.StatusLevel3}"/>
-									<ComboBox ItemsSource="{Binding Source={StaticResource status}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Weapon.Equipment.StatusLevel4}"/>
-								</StackPanel>
-								<StackPanel Grid.Row="6" Grid.Column="1" Orientation="Horizontal">
+									<ComboBox Grid.Column="1" ItemsSource="{Binding Source={StaticResource status}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Weapon.Equipment.StatusLevel2}"/>
+									<ComboBox Grid.Column="2" ItemsSource="{Binding Source={StaticResource status}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Weapon.Equipment.StatusLevel3}"/>
+									<ComboBox Grid.Column="3" ItemsSource="{Binding Source={StaticResource status}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Weapon.Equipment.StatusLevel4}"/>
+								</Grid>
+								<Grid Grid.Row="6" Grid.Column="1">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+									</Grid.ColumnDefinitions>
 									<ComboBox ItemsSource="{Binding Source={StaticResource status}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Weapon.Equipment.StatusLevel5}"/>
-									<ComboBox ItemsSource="{Binding Source={StaticResource status}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Weapon.Equipment.StatusLevel6}"/>
-									<ComboBox ItemsSource="{Binding Source={StaticResource status}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Weapon.Equipment.StatusLevel7}"/>
-									<ComboBox ItemsSource="{Binding Source={StaticResource status}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Weapon.Equipment.StatusLevel8}"/>
-								</StackPanel>
+									<ComboBox Grid.Column="1" ItemsSource="{Binding Source={StaticResource status}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Weapon.Equipment.StatusLevel6}"/>
+									<ComboBox Grid.Column="2" ItemsSource="{Binding Source={StaticResource status}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Weapon.Equipment.StatusLevel7}"/>
+									<ComboBox Grid.Column="3" ItemsSource="{Binding Source={StaticResource status}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Weapon.Equipment.StatusLevel8}"/>
+								</Grid>
 								<Label Grid.Row="7" Content="SecretPower1"/>
 								<StackPanel Grid.Row="7" Grid.Column="1" Orientation="Horizontal">
 									<Button Content="..." DataContext="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Weapon.Equipment}" Click="ButtonEquipmentSecretPower1_Click"/>
@@ -215,6 +240,405 @@
 									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Weapon.EnchantmentAttribute6}" VerticalAlignment="Center"/>
 									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Weapon.EnchantmentAttribute7}" VerticalAlignment="Center"/>
 									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Weapon.EnchantmentAttribute8}" VerticalAlignment="Center"/>
+								</StackPanel>
+							</Grid>
+						</TabItem>
+						<TabItem Header="Armor1">
+							<Grid>
+								<Grid.RowDefinitions>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+								</Grid.RowDefinitions>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition/>
+									<ColumnDefinition Width="1.5*"/>
+								</Grid.ColumnDefinitions>
+								<Label Content="Name"/>
+								<TextBox Grid.Column="1" Text="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].Equipment.Name, UpdateSourceTrigger=PropertyChanged}"/>
+								<Label Grid.Row="1" Content="Type"/>
+								<StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+									<Button Content="..." DataContext="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].Equipment}" Click="ButtonEquipmentType_Click"/>
+									<Label Content="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].Equipment.Type, Converter={StaticResource TypeIDConverter}}"/>
+								</StackPanel>
+								<Label Grid.Row="2" Content="Material"/>
+								<StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
+									<Button Content="..." DataContext="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].Equipment}" Click="ButtonEquipmentMaterial_Click"/>
+									<Label Content="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].Equipment.Material, Converter={StaticResource MaterialIDConverter}}"/>
+								</StackPanel>
+								<Label Grid.Row="3" Content="Attribute Level"/>
+								<Grid Grid.Row="3" Grid.Column="1">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+									</Grid.ColumnDefinitions>
+									<ComboBox ItemsSource="{Binding Source={StaticResource attribute_level}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].Equipment.AttributeLevel1}"/>
+									<ComboBox Grid.Column="1" ItemsSource="{Binding Source={StaticResource attribute_level}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].Equipment.AttributeLevel2}"/>
+									<ComboBox Grid.Column="2" ItemsSource="{Binding Source={StaticResource attribute_level}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].Equipment.AttributeLevel3}"/>
+									<ComboBox Grid.Column="3" ItemsSource="{Binding Source={StaticResource attribute_level}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].Equipment.AttributeLevel4}"/>
+								</Grid>
+								<Grid Grid.Row="4" Grid.Column="1">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+									</Grid.ColumnDefinitions>
+									<ComboBox ItemsSource="{Binding Source={StaticResource attribute_level}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].Equipment.AttributeLevel5}"/>
+									<ComboBox Grid.Column="1" ItemsSource="{Binding Source={StaticResource attribute_level}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].Equipment.AttributeLevel6}"/>
+									<ComboBox Grid.Column="2" ItemsSource="{Binding Source={StaticResource attribute_level}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].Equipment.AttributeLevel7}"/>
+									<ComboBox Grid.Column="3" ItemsSource="{Binding Source={StaticResource attribute_level}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].Equipment.AttributeLevel8}"/>
+								</Grid>
+								<Label Grid.Row="5" Content="Status"/>
+								<Grid Grid.Row="5" Grid.Column="1">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+									</Grid.ColumnDefinitions>
+									<ComboBox ItemsSource="{Binding Source={StaticResource status}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].Equipment.StatusLevel1}"/>
+									<ComboBox Grid.Column="1" ItemsSource="{Binding Source={StaticResource status}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].Equipment.StatusLevel2}"/>
+									<ComboBox Grid.Column="2" ItemsSource="{Binding Source={StaticResource status}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].Equipment.StatusLevel3}"/>
+									<ComboBox Grid.Column="3" ItemsSource="{Binding Source={StaticResource status}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].Equipment.StatusLevel4}"/>
+								</Grid>
+								<Grid Grid.Row="6" Grid.Column="1">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+									</Grid.ColumnDefinitions>
+									<ComboBox ItemsSource="{Binding Source={StaticResource status}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].Equipment.StatusLevel5}"/>
+									<ComboBox Grid.Column="1" ItemsSource="{Binding Source={StaticResource status}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].Equipment.StatusLevel6}"/>
+									<ComboBox Grid.Column="2" ItemsSource="{Binding Source={StaticResource status}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].Equipment.StatusLevel7}"/>
+									<ComboBox Grid.Column="3" ItemsSource="{Binding Source={StaticResource status}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].Equipment.StatusLevel8}"/>
+								</Grid>
+								<Label Grid.Row="7" Content="SecretPower1"/>
+								<StackPanel Grid.Row="7" Grid.Column="1" Orientation="Horizontal">
+									<Button Content="..." DataContext="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].Equipment}" Click="ButtonEquipmentSecretPower1_Click"/>
+									<Label Content="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].Equipment.SecretPower1, Converter={StaticResource SecretPowerIDConverter}}"/>
+								</StackPanel>
+								<Label Grid.Row="8" Content="SecretPower2"/>
+								<StackPanel Grid.Row="8" Grid.Column="1" Orientation="Horizontal">
+									<Button Content="..." DataContext="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].Equipment}" Click="ButtonEquipmentSecretPower2_Click"/>
+									<Label Content="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].Equipment.SecretPower2, Converter={StaticResource SecretPowerIDConverter}}"/>
+								</StackPanel>
+								<Label Grid.Row="9" Content="SecretPower3"/>
+								<StackPanel Grid.Row="9" Grid.Column="1" Orientation="Horizontal">
+									<Button Content="..." DataContext="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].Equipment}" Click="ButtonEquipmentSecretPower3_Click"/>
+									<Label Content="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].Equipment.SecretPower3, Converter={StaticResource SecretPowerIDConverter}}"/>
+								</StackPanel>
+								<Label Grid.Row="10" Content="Hit"/>
+								<TextBox Grid.Row="10" Grid.Column="1" Text="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].Hit, UpdateSourceTrigger=PropertyChanged}"/>
+								<Label Grid.Row="11" Content="Cut"/>
+								<TextBox Grid.Row="11" Grid.Column="1" Text="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].Cut, UpdateSourceTrigger=PropertyChanged}"/>
+								<Label Grid.Row="12" Content="Thrust"/>
+								<TextBox Grid.Row="12" Grid.Column="1" Text="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].Thrust, UpdateSourceTrigger=PropertyChanged}"/>
+								<Label Grid.Row="13" Content="Magic"/>
+								<TextBox Grid.Row="13" Grid.Column="1" Text="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].Magic, UpdateSourceTrigger=PropertyChanged}"/>
+								<Label Grid.Row="14" Content="StatusResistance"/>
+								<StackPanel Grid.Row="14" Grid.Column="1" Orientation="Horizontal">
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].StatusResistance1}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].StatusResistance2}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].StatusResistance3}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].StatusResistance4}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].StatusResistance5}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].StatusResistance6}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].StatusResistance7}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].StatusResistance8}" VerticalAlignment="Center"/>
+								</StackPanel>
+								<Label Grid.Row="15" Content="AttributeResistance"/>
+								<StackPanel Grid.Row="15" Grid.Column="1" Orientation="Horizontal">
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].AttributeResistance1}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].AttributeResistance2}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].AttributeResistance3}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].AttributeResistance4}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].AttributeResistance5}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].AttributeResistance6}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].AttributeResistance7}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[0].AttributeResistance8}" VerticalAlignment="Center"/>
+								</StackPanel>
+							</Grid>
+						</TabItem>
+						<TabItem Header="Armor2">
+							<Grid>
+								<Grid.RowDefinitions>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+								</Grid.RowDefinitions>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition/>
+									<ColumnDefinition Width="1.5*"/>
+								</Grid.ColumnDefinitions>
+								<Label Content="Name"/>
+								<TextBox Grid.Column="1" Text="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].Equipment.Name, UpdateSourceTrigger=PropertyChanged}"/>
+								<Label Grid.Row="1" Content="Type"/>
+								<StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+									<Button Content="..." DataContext="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].Equipment}" Click="ButtonEquipmentType_Click"/>
+									<Label Content="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].Equipment.Type, Converter={StaticResource TypeIDConverter}}"/>
+								</StackPanel>
+								<Label Grid.Row="2" Content="Material"/>
+								<StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
+									<Button Content="..." DataContext="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].Equipment}" Click="ButtonEquipmentMaterial_Click"/>
+									<Label Content="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].Equipment.Material, Converter={StaticResource MaterialIDConverter}}"/>
+								</StackPanel>
+								<Label Grid.Row="3" Content="Attribute Level"/>
+								<Grid Grid.Row="3" Grid.Column="1">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+									</Grid.ColumnDefinitions>
+									<ComboBox ItemsSource="{Binding Source={StaticResource attribute_level}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].Equipment.AttributeLevel1}"/>
+									<ComboBox Grid.Column="1" ItemsSource="{Binding Source={StaticResource attribute_level}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].Equipment.AttributeLevel2}"/>
+									<ComboBox Grid.Column="2" ItemsSource="{Binding Source={StaticResource attribute_level}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].Equipment.AttributeLevel3}"/>
+									<ComboBox Grid.Column="3" ItemsSource="{Binding Source={StaticResource attribute_level}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].Equipment.AttributeLevel4}"/>
+								</Grid>
+								<Grid Grid.Row="4" Grid.Column="1">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+									</Grid.ColumnDefinitions>
+									<ComboBox ItemsSource="{Binding Source={StaticResource attribute_level}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].Equipment.AttributeLevel5}"/>
+									<ComboBox Grid.Column="1" ItemsSource="{Binding Source={StaticResource attribute_level}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].Equipment.AttributeLevel6}"/>
+									<ComboBox Grid.Column="2" ItemsSource="{Binding Source={StaticResource attribute_level}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].Equipment.AttributeLevel7}"/>
+									<ComboBox Grid.Column="3" ItemsSource="{Binding Source={StaticResource attribute_level}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].Equipment.AttributeLevel8}"/>
+								</Grid>
+								<Label Grid.Row="5" Content="Status"/>
+								<Grid Grid.Row="5" Grid.Column="1">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+									</Grid.ColumnDefinitions>
+									<ComboBox ItemsSource="{Binding Source={StaticResource status}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].Equipment.StatusLevel1}"/>
+									<ComboBox Grid.Column="1" ItemsSource="{Binding Source={StaticResource status}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].Equipment.StatusLevel2}"/>
+									<ComboBox Grid.Column="2" ItemsSource="{Binding Source={StaticResource status}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].Equipment.StatusLevel3}"/>
+									<ComboBox Grid.Column="3" ItemsSource="{Binding Source={StaticResource status}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].Equipment.StatusLevel4}"/>
+								</Grid>
+								<Grid Grid.Row="6" Grid.Column="1">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+									</Grid.ColumnDefinitions>
+									<ComboBox ItemsSource="{Binding Source={StaticResource status}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].Equipment.StatusLevel5}"/>
+									<ComboBox Grid.Column="1" ItemsSource="{Binding Source={StaticResource status}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].Equipment.StatusLevel6}"/>
+									<ComboBox Grid.Column="2" ItemsSource="{Binding Source={StaticResource status}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].Equipment.StatusLevel7}"/>
+									<ComboBox Grid.Column="3" ItemsSource="{Binding Source={StaticResource status}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].Equipment.StatusLevel8}"/>
+								</Grid>
+								<Label Grid.Row="7" Content="SecretPower1"/>
+								<StackPanel Grid.Row="7" Grid.Column="1" Orientation="Horizontal">
+									<Button Content="..." DataContext="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].Equipment}" Click="ButtonEquipmentSecretPower1_Click"/>
+									<Label Content="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].Equipment.SecretPower1, Converter={StaticResource SecretPowerIDConverter}}"/>
+								</StackPanel>
+								<Label Grid.Row="8" Content="SecretPower2"/>
+								<StackPanel Grid.Row="8" Grid.Column="1" Orientation="Horizontal">
+									<Button Content="..." DataContext="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].Equipment}" Click="ButtonEquipmentSecretPower2_Click"/>
+									<Label Content="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].Equipment.SecretPower2, Converter={StaticResource SecretPowerIDConverter}}"/>
+								</StackPanel>
+								<Label Grid.Row="9" Content="SecretPower3"/>
+								<StackPanel Grid.Row="9" Grid.Column="1" Orientation="Horizontal">
+									<Button Content="..." DataContext="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].Equipment}" Click="ButtonEquipmentSecretPower3_Click"/>
+									<Label Content="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].Equipment.SecretPower3, Converter={StaticResource SecretPowerIDConverter}}"/>
+								</StackPanel>
+								<Label Grid.Row="10" Content="Hit"/>
+								<TextBox Grid.Row="10" Grid.Column="1" Text="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].Hit, UpdateSourceTrigger=PropertyChanged}"/>
+								<Label Grid.Row="11" Content="Cut"/>
+								<TextBox Grid.Row="11" Grid.Column="1" Text="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].Cut, UpdateSourceTrigger=PropertyChanged}"/>
+								<Label Grid.Row="12" Content="Thrust"/>
+								<TextBox Grid.Row="12" Grid.Column="1" Text="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].Thrust, UpdateSourceTrigger=PropertyChanged}"/>
+								<Label Grid.Row="13" Content="Magic"/>
+								<TextBox Grid.Row="13" Grid.Column="1" Text="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].Magic, UpdateSourceTrigger=PropertyChanged}"/>
+								<Label Grid.Row="14" Content="StatusResistance"/>
+								<StackPanel Grid.Row="14" Grid.Column="1" Orientation="Horizontal">
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].StatusResistance1}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].StatusResistance2}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].StatusResistance3}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].StatusResistance4}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].StatusResistance5}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].StatusResistance6}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].StatusResistance7}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].StatusResistance8}" VerticalAlignment="Center"/>
+								</StackPanel>
+								<Label Grid.Row="15" Content="AttributeResistance"/>
+								<StackPanel Grid.Row="15" Grid.Column="1" Orientation="Horizontal">
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].AttributeResistance1}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].AttributeResistance2}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].AttributeResistance3}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].AttributeResistance4}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].AttributeResistance5}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].AttributeResistance6}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].AttributeResistance7}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[1].AttributeResistance8}" VerticalAlignment="Center"/>
+								</StackPanel>
+							</Grid>
+						</TabItem>
+						<TabItem Header="Armor3">
+							<Grid>
+								<Grid.RowDefinitions>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+								</Grid.RowDefinitions>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition/>
+									<ColumnDefinition Width="1.5*"/>
+								</Grid.ColumnDefinitions>
+								<Label Content="Name"/>
+								<TextBox Grid.Column="1" Text="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].Equipment.Name, UpdateSourceTrigger=PropertyChanged}"/>
+								<Label Grid.Row="1" Content="Type"/>
+								<StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+									<Button Content="..." DataContext="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].Equipment}" Click="ButtonEquipmentType_Click"/>
+									<Label Content="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].Equipment.Type, Converter={StaticResource TypeIDConverter}}"/>
+								</StackPanel>
+								<Label Grid.Row="2" Content="Material"/>
+								<StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
+									<Button Content="..." DataContext="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].Equipment}" Click="ButtonEquipmentMaterial_Click"/>
+									<Label Content="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].Equipment.Material, Converter={StaticResource MaterialIDConverter}}"/>
+								</StackPanel>
+								<Label Grid.Row="3" Content="Attribute Level"/>
+								<Grid Grid.Row="3" Grid.Column="1">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+									</Grid.ColumnDefinitions>
+									<ComboBox ItemsSource="{Binding Source={StaticResource attribute_level}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].Equipment.AttributeLevel1}"/>
+									<ComboBox Grid.Column="1" ItemsSource="{Binding Source={StaticResource attribute_level}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].Equipment.AttributeLevel2}"/>
+									<ComboBox Grid.Column="2" ItemsSource="{Binding Source={StaticResource attribute_level}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].Equipment.AttributeLevel3}"/>
+									<ComboBox Grid.Column="3" ItemsSource="{Binding Source={StaticResource attribute_level}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].Equipment.AttributeLevel4}"/>
+								</Grid>
+								<Grid Grid.Row="4" Grid.Column="1">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+									</Grid.ColumnDefinitions>
+									<ComboBox ItemsSource="{Binding Source={StaticResource attribute_level}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].Equipment.AttributeLevel5}"/>
+									<ComboBox Grid.Column="1" ItemsSource="{Binding Source={StaticResource attribute_level}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].Equipment.AttributeLevel6}"/>
+									<ComboBox Grid.Column="2" ItemsSource="{Binding Source={StaticResource attribute_level}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].Equipment.AttributeLevel7}"/>
+									<ComboBox Grid.Column="3" ItemsSource="{Binding Source={StaticResource attribute_level}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].Equipment.AttributeLevel8}"/>
+								</Grid>
+								<Label Grid.Row="5" Content="Status"/>
+								<Grid Grid.Row="5" Grid.Column="1">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+									</Grid.ColumnDefinitions>
+									<ComboBox ItemsSource="{Binding Source={StaticResource status}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].Equipment.StatusLevel1}"/>
+									<ComboBox Grid.Column="1" ItemsSource="{Binding Source={StaticResource status}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].Equipment.StatusLevel2}"/>
+									<ComboBox Grid.Column="2" ItemsSource="{Binding Source={StaticResource status}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].Equipment.StatusLevel3}"/>
+									<ComboBox Grid.Column="3" ItemsSource="{Binding Source={StaticResource status}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].Equipment.StatusLevel4}"/>
+								</Grid>
+								<Grid Grid.Row="6" Grid.Column="1">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+										<ColumnDefinition/>
+									</Grid.ColumnDefinitions>
+									<ComboBox ItemsSource="{Binding Source={StaticResource status}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].Equipment.StatusLevel5}"/>
+									<ComboBox Grid.Column="1" ItemsSource="{Binding Source={StaticResource status}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].Equipment.StatusLevel6}"/>
+									<ComboBox Grid.Column="2" ItemsSource="{Binding Source={StaticResource status}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].Equipment.StatusLevel7}"/>
+									<ComboBox Grid.Column="3" ItemsSource="{Binding Source={StaticResource status}, XPath=items/item}" SelectedIndex="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].Equipment.StatusLevel8}"/>
+								</Grid>
+								<Label Grid.Row="7" Content="SecretPower1"/>
+								<StackPanel Grid.Row="7" Grid.Column="1" Orientation="Horizontal">
+									<Button Content="..." DataContext="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].Equipment}" Click="ButtonEquipmentSecretPower1_Click"/>
+									<Label Content="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].Equipment.SecretPower1, Converter={StaticResource SecretPowerIDConverter}}"/>
+								</StackPanel>
+								<Label Grid.Row="8" Content="SecretPower2"/>
+								<StackPanel Grid.Row="8" Grid.Column="1" Orientation="Horizontal">
+									<Button Content="..." DataContext="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].Equipment}" Click="ButtonEquipmentSecretPower2_Click"/>
+									<Label Content="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].Equipment.SecretPower2, Converter={StaticResource SecretPowerIDConverter}}"/>
+								</StackPanel>
+								<Label Grid.Row="9" Content="SecretPower3"/>
+								<StackPanel Grid.Row="9" Grid.Column="1" Orientation="Horizontal">
+									<Button Content="..." DataContext="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].Equipment}" Click="ButtonEquipmentSecretPower3_Click"/>
+									<Label Content="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].Equipment.SecretPower3, Converter={StaticResource SecretPowerIDConverter}}"/>
+								</StackPanel>
+								<Label Grid.Row="10" Content="Hit"/>
+								<TextBox Grid.Row="10" Grid.Column="1" Text="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].Hit, UpdateSourceTrigger=PropertyChanged}"/>
+								<Label Grid.Row="11" Content="Cut"/>
+								<TextBox Grid.Row="11" Grid.Column="1" Text="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].Cut, UpdateSourceTrigger=PropertyChanged}"/>
+								<Label Grid.Row="12" Content="Thrust"/>
+								<TextBox Grid.Row="12" Grid.Column="1" Text="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].Thrust, UpdateSourceTrigger=PropertyChanged}"/>
+								<Label Grid.Row="13" Content="Magic"/>
+								<TextBox Grid.Row="13" Grid.Column="1" Text="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].Magic, UpdateSourceTrigger=PropertyChanged}"/>
+								<Label Grid.Row="14" Content="StatusResistance"/>
+								<StackPanel Grid.Row="14" Grid.Column="1" Orientation="Horizontal">
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].StatusResistance1}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].StatusResistance2}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].StatusResistance3}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].StatusResistance4}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].StatusResistance5}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].StatusResistance6}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].StatusResistance7}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].StatusResistance8}" VerticalAlignment="Center"/>
+								</StackPanel>
+								<Label Grid.Row="15" Content="AttributeResistance"/>
+								<StackPanel Grid.Row="15" Grid.Column="1" Orientation="Horizontal">
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].AttributeResistance1}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].AttributeResistance2}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].AttributeResistance3}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].AttributeResistance4}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].AttributeResistance5}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].AttributeResistance6}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].AttributeResistance7}" VerticalAlignment="Center"/>
+									<CheckBox IsChecked="{Binding ElementName=ListBoxCharactor, Path=SelectedItem.Armors[2].AttributeResistance8}" VerticalAlignment="Center"/>
 								</StackPanel>
 							</Grid>
 						</TabItem>
