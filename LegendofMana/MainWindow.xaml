@@ -12,6 +12,8 @@
 		<local:ViewModel/>
 	</Window.DataContext>
 	<Window.Resources>
+		<BitmapImage UriSource="./resource/Open.png" x:Key="Open"/>
+		<BitmapImage UriSource="./resource/Save.png" x:Key="Save"/>
 		<local:TypeIDConverter x:Key="TypeIDConverter"/>
 		<local:MaterialIDConverter x:Key="MaterialIDConverter"/>
 		<local:SecretPowerIDConverter x:Key="SecretPowerIDConverter"/>
@@ -71,6 +73,14 @@
 				<MenuItem Header="Exit"/>
 			</MenuItem>
 		</Menu>
+		<ToolBar DockPanel.Dock="Top">
+			<Button Height="32" Click="MenuItemFileOpen_Click">
+				<Image Source="{StaticResource Open}"/>
+			</Button>
+			<Button Height="32" Click="MenuItemFileSave_Click">
+				<Image Source="{StaticResource Save}"/>
+			</Button>
+		</ToolBar>
 		<TabControl>
 			<TabItem Header="Basic">
 				<Grid>
