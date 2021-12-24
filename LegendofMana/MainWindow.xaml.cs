@@ -54,6 +54,11 @@ namespace LegendofMana
 			SaveData.Instance().Save();
 		}
 
+		private void MenuItemFileExit_Click(object sender, RoutedEventArgs e)
+		{
+			Close();
+		}
+
 		private void ButtonEquipmentType_Click(object sender, RoutedEventArgs e)
 		{
 			var equipment = (sender as Button)?.DataContext as Equipment;

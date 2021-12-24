@@ -29,9 +29,9 @@ https://store.steampowered.com/app/1175830
 
 # Step to Edit
 * SaveData Backup
-* Save editor will read in『data_000_0000.bin』(x = 1 or ...)
+* Save editor will read in『data_000_000x.bin』(x = 0 or 1 or ...)
 * Perform any editing
-* Write out 『data_000_0000.bin』(x = 1 or ...)
+* Write out 『data_000_000x.bin』(x = 0 or 1 or ...)
 * SaveData Restore
 
 # Special Thanks

@@ -10,12 +10,20 @@ namespace LegendofMana
 	internal class ViewModel
 	{
 		public ObservableCollection<Charactor> Charactors { get; private set; } = new ObservableCollection<Charactor>();
+		public ObservableCollection<Item> Items { get; private set; } = new ObservableCollection<Item>();
 
 		public ViewModel()
 		{
 			for (uint index = 0; index < 2; index++)
 			{
 				Charactors.Add(new Charactor(0x790 + index * 880));
+			}
+
+			for (uint index = 0; index < 100; index++)
+			{
+				var item = new Item(0x11E0 + index * 0x60);
+				if (String.IsNullOrEmpty(item.Weapon.Equipment.Name)) continue;
+				Items.Add(item);
 			}
 		}
 
