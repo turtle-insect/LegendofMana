@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
 		AllowDrop="True" Drop="Window_Drop" PreviewDragOver="Window_PreviewDragOver"
-        Title="MainWindow" Height="600" Width="850">
+        Title="Legend of Mana Nintendo Switch Save Editor" Height="600" Width="850">
 	<Window.DataContext>
 		<local:ViewModel/>
 	</Window.DataContext>
