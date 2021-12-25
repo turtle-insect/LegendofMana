@@ -13,6 +13,8 @@ https://www.jp.square-enix.com/seiken_lom/
 # Soft
 ■Switch  
 https://store-jp.nintendo.com/list/software/70010000034470.html  
+■PS4  
+https://store.playstation.com/ja-jp/product/JP0082-CUSA24494_00-LOMPS4JPN0000001  
 ■Steam  
 https://store.steampowered.com/app/1175830
 
